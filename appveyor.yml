@@ -16,7 +16,7 @@ environment:
     secure: BmJ+nXveM9U2XhoNrRxXZBg+OLgOWmOtvIiWBeVbpPU65tsMHFawtcAWd0/w5l53
   toAddress:
     secure: z5Hc/Stit0KRYyLHRGaCPvxWPd8erAkWsxzrPplTwAKmczeHNn1+eqq6upkpNMFa
-  fromAddres:
+  fromAddress:
     secure: gaOgZ1O+5tmtqRTpv+999cM+hpSg7xjV/OfcfH72knuJ9XwVg0YCXHbju4p6QkuE
 
 dotnet_csproj: 
