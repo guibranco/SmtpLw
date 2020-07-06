@@ -6,7 +6,7 @@ The Locaweb dedicated SMTP service API client.
 
 ## CI/CD
 
-![Build status](https://ci.appveyor.com/api/projects/status/b7xakaaq8ldqp34r?svg=true)](https://ci.appveyor.com/project/guibranco/smtplw)
+[![Build status](https://ci.appveyor.com/api/projects/status/b7xakaaq8ldqp34r?svg=true)](https://ci.appveyor.com/project/guibranco/smtplw)
 [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/smtplw)](https://github.com/guibranco/smtplw)
 [![GitHub last release](https://img.shields.io/github/release-date/guibranco/smtplw.svg?style=flat)](https://github.com/guibranco/smtplw)
 [![GitHub license](https://img.shields.io/github/license/guibranco/smtplw)](https://github.com/guibranco/smtplw)
@@ -57,10 +57,8 @@ Install-Package SmtpLw
 
 Implements all features of Project name API available at [SMTP Localweb API](http://developer.locaweb.com.br/documentacoes/smtp/api-como-utilizar/)
 
-- Feature #1
-- Feature #2
-- Feature #3
-- Feature #N
+- Send message
+- Get message status
 
 ---
 
@@ -68,9 +66,19 @@ Implements all features of Project name API available at [SMTP Localweb API](htt
 
 ```cs
 
-//sample CSharp code showing how to use the lib
-var client = new PackageNameClient();
-client.CallSomeMethod();
+var client = new SmtpLwClient("my-autho-token");
+
+var message = new MessageModel {
+  Subject = "Some mail subject",
+  Body = "Message body content!<br /> <b>HTML content</b> or plain text.",
+  To = "destination@domain.com",
+  From = "configured-from@mydomain.com",
+  Headers = new Dictionary<string, string> { { "content-type","text/html"} }
+};
+
+var messageId = await client.SendMessageAsync(message, CancellationToken.None).ConfigureAwait(false);
+
+Console.WriteLine("Message Id: {0}", messageId);
 
 ```
 
