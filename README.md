@@ -10,7 +10,7 @@ The Locaweb dedicated SMTP service API client.
 [![GitHub last commit](https://img.shields.io/github/last-commit/guibranco/smtplw)](https://github.com/guibranco/smtplw)
 [![GitHub last release](https://img.shields.io/github/release-date/guibranco/smtplw.svg?style=flat)](https://github.com/guibranco/smtplw)
 [![GitHub license](https://img.shields.io/github/license/guibranco/smtplw)](https://github.com/guibranco/smtplw)
-[![time tracker](https://wakatime.com/badge/github/guibranco/smtplw.svg)](https://wakatime.com/badge/github/guibranco/smtplw)
+[![time tracker](https://wakatime.com/badge/github/guibranco/SmtpLw.svg)](https://wakatime.com/badge/github/guibranco/SmtpLw)
 
 ## Code Quality
 
