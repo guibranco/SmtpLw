@@ -1,0 +1,70 @@
+﻿// ***********************************************************************
+// Assembly         : SmtpLw
+// Author           : Guilherme Branco Stracini
+// Created          : 07-05-2020
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 07-05-2020
+// ***********************************************************************
+// <copyright file="MessageModel.cs" company="Guilherme Branco Stracini ME">
+//     © 2020 Guilherme Branco Stracini. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using Newtonsoft.Json;
+using System.Collections.Generic;
+
+namespace SmtpLw.Models
+{
+    /// <summary>
+    /// Class MessageModel.
+    /// </summary>
+    public class MessageModel
+    {
+        /// <summary>
+        /// Gets or sets the subject.
+        /// </summary>
+        /// <value>The subject.</value>
+        public string Subject { get; set; }
+
+        /// <summary>
+        /// Gets or sets the body.
+        /// </summary>
+        /// <value>The body.</value>
+        public string Body { get; set; }
+
+        /// <summary>
+        /// Gets or sets from.
+        /// </summary>
+        /// <value>From.</value>
+        public string From { get; set; }
+
+        /// <summary>
+        /// Gets or sets to.
+        /// </summary>
+        /// <value>To.</value>
+        public string To { get; set; }
+
+        /// <summary>
+        /// Gets or sets the carbon copy.
+        /// </summary>
+        /// <value>The carbon copy.</value>
+        [JsonProperty("cc")]
+        public string[] CarbonCopy { get; set; }
+
+        /// <summary>
+        /// Gets or sets the blind carbon copy.
+        /// </summary>
+        /// <value>The blind carbon copy.</value>
+        [JsonProperty("bcc")]
+        public string[] BlindCarbonCopy { get; set; }
+
+        /// <summary>
+        /// Gets or sets the headers.
+        /// </summary>
+        /// <value>The headers.</value>
+        public Dictionary<string, string> Headers { get; set; }
+
+
+    }
+}
