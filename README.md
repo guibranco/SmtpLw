@@ -55,7 +55,7 @@ Install-Package SmtpLw
 
 ## Features
 
-Implements all features of Project name API available at [SMTP Localweb API](http://developer.locaweb.com.br/documentacoes/smtp/api-como-utilizar/)
+Implements all features of Locaweb SMTP API available at [SMTP Localweb API docs](http://developer.locaweb.com.br/documentacoes/smtp/api-como-utilizar/)
 
 - Send message
 - Get message status
