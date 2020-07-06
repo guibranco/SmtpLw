@@ -17,19 +17,19 @@ The Locaweb dedicated SMTP service API client.
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/fcc8c6f773fd4aa3a286cd47e5fd8d3f)](https://www.codacy.com/manual/guilherme_9/SmtpLw)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/fcc8c6f773fd4aa3a286cd47e5fd8d3f)](https://www.codacy.com/manual/guilherme_9/SmtpLw)
 [![Codecov](https://codecov.io/gh/guibranco/smtplw/branch/master/graph/badge.svg)](https://codecov.io/gh/guibranco/smtplw)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=guibranco_smtplw&metric=alert_status)](https://sonarcloud.io/dashboard?id=guibranco_smtplw)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_smtplw&metric=coverage)](https://sonarcloud.io/dashboard?id=guibranco_smtplw)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw&metric=alert_status)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw&metric=coverage)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
 
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_smtplw&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=guibranco_smtplw)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_smtplw&metric=ncloc)](https://sonarcloud.io/dashboard?id=guibranco_smtplw)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=guibranco_smtplw&metric=sqale_index)](https://sonarcloud.io/dashboard?id=guibranco_smtplw)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=guibranco_smtplw&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=guibranco_smtplw)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw&metric=ncloc)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw&metric=sqale_index)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
 
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_smtplw&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=guibranco_smtplw)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_smtplw&metric=security_rating)](https://sonarcloud.io/dashboard?id=guibranco_smtplw)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_smtplw&metric=code_smells)](https://sonarcloud.io/dashboard?id=guibranco_smtplw)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=guibranco_smtplw&metric=bugs)](https://sonarcloud.io/dashboard?id=guibranco_smtplw)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=guibranco_smtplw&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=guibranco_smtplw)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw&metric=security_rating)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw&metric=code_smells)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw&metric=bugs)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
 
 ---
 
