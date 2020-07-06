@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Guilherme Branco Stracini</Authors>
+    <Company>Guilherme Branco Stracini</Company>
+    <Description>The SmtpLw (dedicated Locaweb SMTP) API client wrapper.</Description>
+    <Copyright>© 2020 Guilherme Branco Stracini. All rights reserved.</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageIcon>logo.jpg</PackageIcon>
+    <RepositoryUrl>https://github.com/guibranco/smtplw</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>smtp locaweb lw client api wrapper email e-mail</PackageTags>
+    <PackageProjectUrl>https://guibranco.github.io/SmtpLw</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\logo.jpg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+</Project>
