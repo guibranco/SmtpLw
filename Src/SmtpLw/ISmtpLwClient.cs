@@ -27,8 +27,8 @@ namespace SmtpLw
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Task&lt;System.String&gt;.</returns>
-        Task<string> SendMessageAsync(MessageModel message, CancellationToken cancellationToken);
+        /// <returns>Task&lt;System.Int32&gt;.</returns>
+        Task<int> SendMessageAsync(MessageModel message, CancellationToken cancellationToken);
 
         /// <summary>
         /// Gets the message status asynchronous.
@@ -36,7 +36,7 @@ namespace SmtpLw
         /// <param name="messageId">The message identifier.</param>
         /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Task&lt;StatusModel&gt;.</returns>
-        Task<StatusModel> GetMessageStatusAsync(string messageId, CancellationToken cancellationToken);
+        Task<StatusModel> GetMessageStatusAsync(int messageId, CancellationToken cancellationToken);
 
     }
 }

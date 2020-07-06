@@ -6,29 +6,22 @@
 // Last Modified By : Guilherme Branco Stracini
 // Last Modified On : 07-05-2020
 // ***********************************************************************
-// <copyright file="ResponseModel.cs" company="Guilherme Branco Stracini ME">
+// <copyright file="Error.cs" company="Guilherme Branco Stracini ME">
 //     © 2020 Guilherme Branco Stracini. All rights reserved.
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-
 namespace SmtpLw.Models
 {
     /// <summary>
-    /// Class ResponseModel.
+    /// Class Error.
     /// </summary>
-    internal class ResponseModel
+    public class Error
     {
         /// <summary>
-        /// Gets or sets the data.
+        /// Gets or sets the detail.
         /// </summary>
-        /// <value>The data.</value>
-        public Data Data { get; set; }
-
-        /// <summary>
-        /// Gets or sets the errors.
-        /// </summary>
-        /// <value>The errors.</value>
-        public Error[] Errors { get; set; }
+        /// <value>The detail.</value>
+        public string Detail { get; set; }
     }
 }
