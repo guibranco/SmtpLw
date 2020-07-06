@@ -12,6 +12,12 @@ environment:
     secure: VgYYJdvNLy/n9/uxxlaF0bMpIIrVxCb+dGr66U9nWfPWSN2ySdfuilO8klAw0uvF
   CODACY_PROJECT_TOKEN:
     secure: lLRKuaFN1pM+4+5a3G05mvFwIj9W7ZQTjlP3I4o8xJ6MueQckCafmpd2Y+NE5JJ5
+  authToken:
+    secure: BmJ+nXveM9U2XhoNrRxXZBg+OLgOWmOtvIiWBeVbpPU65tsMHFawtcAWd0/w5l53
+  toAddress:
+    secure: z5Hc/Stit0KRYyLHRGaCPvxWPd8erAkWsxzrPplTwAKmczeHNn1+eqq6upkpNMFa
+  fromAddress:
+    secure: gaOgZ1O+5tmtqRTpv+999cM+hpSg7xjV/OfcfH72knuJ9XwVg0YCXHbju4p6QkuE
 
 dotnet_csproj: 
   patch: true 
@@ -53,6 +59,13 @@ build_script:
 - dotnet test .\Tests\%SOLUTION_NAME%.Tests\%SOLUTION_NAME%.Tests.csproj 
  /p:CollectCoverage=true 
  /p:CoverletOutputFormat="opencover"
+- codecov -f "%CD%\Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
+- java 
+ -jar 
+ ./codacy-test-reporter.jar report 
+ -l CSharp 
+ -t %CODACY_PROJECT_TOKEN% 
+ -r "%CD%\Tests\%SOLUTION_NAME%.Tests\coverage.opencover.xml"
 - ps: 'if (-Not $env:APPVEYOR_PULL_REQUEST_NUMBER -And $env:APPVEYOR_REPO_BRANCH -eq "master") { & 
  dotnet sonarscanner end 
  /d:sonar.login="$env:SONAR_TOKEN" }'
@@ -61,8 +74,11 @@ after_build:
 - xcopy %CD%\Src\%SOLUTION_NAME%\bin\Release\netstandard2.0\*.* %CD%\Build\
 - copy %CD%\Src\%SOLUTION_NAME%\bin\Release\%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.nupkg %SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.nupkg
 - rd /s /q %CD%\Src\%SOLUTION_NAME%\bin\Release\
+- xcopy %CD%\Tests\%SOLUTION_NAME%.Tests\*.xml %CD%\Coverage\
+- xcopy %CD%\Tests\%SOLUTION_NAME%.Tests\*.json %CD%\Coverage\
 - cd %CD%
 - 7z a -tzip -mx9 "%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.zip" Build
+- 7z a -tzip -mx9 "%SOLUTION_NAME%.%APPVEYOR_BUILD_VERSION%.Coverage.zip" Coverage
 
 artifacts:
 - path: $(SOLUTION_NAME).%APPVEYOR_BUILD_VERSION%.zip

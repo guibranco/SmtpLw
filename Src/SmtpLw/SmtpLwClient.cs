@@ -14,6 +14,7 @@
 using Newtonsoft.Json;
 using SmtpLw.Models;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
@@ -43,11 +44,9 @@ namespace SmtpLw
         /// </summary>
         public SmtpLwClient(string authToken)
         {
-            _httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://api.smtplw.com.br/v1/"),
-                Timeout = TimeSpan.FromSeconds(30)
-            };
+            _httpClient = HttpClientFactory.Create();
+            _httpClient.BaseAddress = new Uri("https://api.smtplw.com.br/v1/");
+            _httpClient.Timeout = TimeSpan.FromSeconds(30);
             _httpClient.DefaultRequestHeaders.ExpectContinue = false;
             _httpClient.DefaultRequestHeaders.Accept.Clear();
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(@"application/json"));
@@ -66,14 +65,14 @@ namespace SmtpLw
 
         #region Implementation of ISmtpLwClient
 
-
         /// <summary>
         /// send message as an asynchronous operation.
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Task&lt;System.String&gt;.</returns>
-        public async Task<string> SendMessageAsync(MessageModel message, CancellationToken cancellationToken)
+        /// <returns>Task&lt;System.Int32&gt;.</returns>
+        /// <exception cref="SmtpLwException">There is some errors with your message: {string.Join(",", errors)}</exception>
+        public async Task<int> SendMessageAsync(MessageModel message, CancellationToken cancellationToken)
         {
             var errors = ValidateMessage(message);
 
@@ -94,7 +93,7 @@ namespace SmtpLw
         /// <param name="messageId">The message identifier.</param>
         /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Task&lt;StatusModel&gt;.</returns>
-        public async Task<StatusModel> GetMessageStatusAsync(string messageId, CancellationToken cancellationToken)
+        public async Task<StatusModel> GetMessageStatusAsync(int messageId, CancellationToken cancellationToken)
         {
 
             var response = await _httpClient.GetAsync($"messages/{messageId}", cancellationToken).ConfigureAwait(false);
@@ -113,13 +112,25 @@ namespace SmtpLw
         {
             var errors = new Collection<string>();
 
+            if (string.IsNullOrWhiteSpace(message.Subject))
+                errors.Add("Message subject cannot be empty or null");
+
+            if (string.IsNullOrWhiteSpace(message.Body))
+                errors.Add("Message body cannot be empty or null");
+
+            if (string.IsNullOrWhiteSpace(message.To))
+                errors.Add("Message to cannot be empty or null");
+
+            if (string.IsNullOrWhiteSpace(message.From))
+                errors.Add("Message from cannot be empty or null");
+
             if (message.Subject.Length > 998)
                 errors.Add("Message subject cannot be higher than 998 characters length");
 
             if (message.Body.Length > 1048576)
                 errors.Add("Message body cannot be higher than 1048576 characters length");
 
-            if (message.Headers.Count > 50)
+            if (message.Headers != null && message.Headers.Count > 50)
                 errors.Add("Cannot send more than 50 headers per message");
 
             return errors.ToArray();
@@ -131,28 +142,35 @@ namespace SmtpLw
         /// <param name="response">The response.</param>
         /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>System.Threading.Tasks.Task&lt;System.String&gt;.</returns>
-        private static async Task<string> HandleSendResponseAsync(HttpResponseMessage response, CancellationToken cancellationToken)
+        private static async Task<int> HandleSendResponseAsync(HttpResponseMessage response,
+            CancellationToken cancellationToken)
         {
+            if (response.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                throw new SmtpException("Invalid authorization token");
+            }
+
+            ResponseModel responseModel;
+
+            if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                responseModel = await response.Content.ReadAsAsync<ResponseModel>(cancellationToken)
+                    .ConfigureAwait(false);
+                var errors = responseModel.Errors?.Select(e => e.Detail) ?? new List<string>();
+
+                throw new SmtpLwException(
+                    $"Unable to send message, for the following reason(s): {string.Join(",", errors)}");
+            }
+
             if (response.StatusCode != HttpStatusCode.Created)
             {
                 var responseContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                 throw new SmtpLwException((int)response.StatusCode, responseContent);
             }
 
-            var responseModel = await response.Content.ReadAsAsync<ResponseModel>(cancellationToken).ConfigureAwait(false);
+            responseModel = await response.Content.ReadAsAsync<ResponseModel>(cancellationToken).ConfigureAwait(false);
 
-            if (!responseModel.Status.Equals("ok", StringComparison.InvariantCultureIgnoreCase))
-                throw new SmtpLwException($"The API returned unexpected response: {responseModel.Status}");
-
-            var messageId = response.Headers.GetValues("x-api-message-id").FirstOrDefault();
-            var location = response.Headers.Location;
-
-            if (string.IsNullOrWhiteSpace(messageId) && location == null)
-                throw new SmtpException($"Cannot find the message id in response");
-
-            return !string.IsNullOrWhiteSpace(messageId)
-                ? messageId
-                : location.AbsolutePath.Replace("/v1/messages/", "");
+            return responseModel.Data.Id;
         }
 
         /// <summary>
