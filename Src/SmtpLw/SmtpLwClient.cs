@@ -124,10 +124,10 @@ namespace SmtpLw
             if (string.IsNullOrWhiteSpace(message.From))
                 errors.Add("Message from cannot be empty or null");
 
-            if (message.Subject.Length > 998)
+            if (message.Subject != null && message.Subject.Length > 998)
                 errors.Add("Message subject cannot be higher than 998 characters length");
 
-            if (message.Body.Length > 1048576)
+            if (message.Body != null && message.Body.Length > 1048576)
                 errors.Add("Message body cannot be higher than 1048576 characters length");
 
             if (message.Headers != null && message.Headers.Count > 50)

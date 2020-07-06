@@ -78,8 +78,8 @@ namespace SmtpLw.Tests
         {
             var model = new MessageModel
             {
-                Body = "Test",
-                Subject = "Subject",
+                Body = $"This is a test message sent at {DateTime.Now:dd/MM/yyyy HH:mm:ss}",
+                Subject = $".NET SMTP Locaweb client wrapper test [{DateTime.Now:dd/MM/yyyy}]",
                 To = _configuration["toAddress"],
                 From = _configuration["fromAddress"]
             };
@@ -89,6 +89,18 @@ namespace SmtpLw.Tests
             _testOutputHelper.WriteLine("Message id: {0}", messageId);
 
             Assert.True(messageId > 0);
+        }
+
+        [Fact]
+        public async Task ValidateInvalidMessage()
+        {
+            var model = new MessageModel();
+
+            var result = await Assert.ThrowsAsync<SmtpLwException>(async () => await _client.SendMessageAsync(model, CancellationToken.None).ConfigureAwait(false));
+
+            _testOutputHelper.WriteLine("Error message: {0}", result.Message);
+
+            Assert.NotNull(result.Message);
         }
     }
 }
