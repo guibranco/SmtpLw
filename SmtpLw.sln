@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{E1DE95CB-4156-4481-A520-83723DAC57C3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmtpLw", "Src\SmtpLw\SmtpLw.csproj", "{47C797BB-B5EF-4A36-81D5-CC171FC5C1B0}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7755B2AC-A813-442F-AA4E-48E5F831C5ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmtpLw", "Src\SmtpLw\SmtpLw.csproj", "{47C797BB-B5EF-4A36-81D5-CC171FC5C1B0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmtpLw.Tests", "Tests\SmtpLw.Tests\SmtpLw.Tests.csproj", "{57EF00BB-6ABF-4AFA-B2F6-E99BAD4A7655}"
 EndProject
