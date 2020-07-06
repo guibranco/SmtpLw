@@ -66,7 +66,7 @@ Implements all features of Locaweb SMTP API available at [SMTP Localweb API docs
 
 ```cs
 
-var client = new SmtpLwClient("my-autho-token");
+var client = new SmtpLwClient("my-auth-token");
 
 var message = new MessageModel {
   Subject = "Some mail subject",
