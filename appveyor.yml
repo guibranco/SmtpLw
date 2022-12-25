@@ -13,7 +13,7 @@ environment:
   CODACY_PROJECT_TOKEN:
     secure: lLRKuaFN1pM+4+5a3G05mvFwIj9W7ZQTjlP3I4o8xJ6MueQckCafmpd2Y+NE5JJ5
   authToken:
-    secure: BmJ+nXveM9U2XhoNrRxXZBg+OLgOWmOtvIiWBeVbpPU65tsMHFawtcAWd0/w5l53
+    secure: 1iKvp7jLAwzaM3eG/dRi0C4JIRTGzGq5Xqx2J98Qv4F4CSrSKborOeHHrfRyPxTh
   toAddress:
     secure: z5Hc/Stit0KRYyLHRGaCPvxWPd8erAkWsxzrPplTwAKmczeHNn1+eqq6upkpNMFa
   fromAddress:
