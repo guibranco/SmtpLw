@@ -14,8 +14,7 @@ The Locaweb dedicated SMTP service API client.
 
 ## Code Quality
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/fcc8c6f773fd4aa3a286cd47e5fd8d3f)](https://www.codacy.com/manual/guilherme_9/SmtpLw)
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/fcc8c6f773fd4aa3a286cd47e5fd8d3f)](https://www.codacy.com/manual/guilherme_9/SmtpLw)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/5ee8a21e3f7a4ccdb614e8856c48d5f3)](https://www.codacy.com/gh/guibranco/SmtpLw/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/SmtpLw&amp;utm_campaign=Badge_Grade)
 [![Codecov](https://codecov.io/gh/guibranco/smtplw/branch/master/graph/badge.svg)](https://codecov.io/gh/guibranco/smtplw)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw&metric=alert_status)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw&metric=coverage)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
