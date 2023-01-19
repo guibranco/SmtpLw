@@ -5,7 +5,7 @@ The Locaweb dedicated SMTP service API client.
 [![GitHub license](https://img.shields.io/github/license/guibranco/SmtpLw)](https://github.com/guibranco/SmtpLw)
 [![Time tracker](https://wakatime.com/badge/github/guibranco/SmtpLw.svg)](https://wakatime.com/badge/github/guibranco/SmtpLw)
 
-![SMTPLW - SMTP Locaweb](https://raw.githubusercontent.com/guibranco/smtplw/master/logo.jpg)
+<img src="https://raw.githubusercontent.com/guibranco/SmtpLw/master/logo.jpg" alt="SmtpLw" width="432" height="250" />
 
 ## CI/CD
 
@@ -37,6 +37,8 @@ The Locaweb dedicated SMTP service API client.
 ### Github Releases
 
 [![GitHub last release](https://img.shields.io/github/release-date/guibranco/SmtpLw.svg?style=flat)](https://github.com/guibranco/SmtpLw) [![Github All Releases](https://img.shields.io/github/downloads/guibranco/SmtpLw/total.svg?style=flat)](https://github.com/guibranco/SmtpLw)
+
+Download the latest zip file from the [Release](https://github.com/GuiBranco/SmtpLw/releases) page.
 
 ### Nuget package manager
 
