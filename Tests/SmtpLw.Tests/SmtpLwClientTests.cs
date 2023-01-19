@@ -1,3 +1,16 @@
+// ***********************************************************************
+// Assembly         : SmtpLw.Tests
+// Author           : Guilherme Branco Stracini
+// Created          : 19/01/2023
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 19/01/2023
+// ***********************************************************************
+// <copyright file="SmtpLwClientTests.cs" company="SmtpLw.Tests">
+//     Copyright (c) Guilherme Branco Stracini ME. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 namespace SmtpLw.Tests
 {
 
@@ -17,6 +30,9 @@ namespace SmtpLw.Tests
     /// </summary>
     public class SmtpLwClientTests
     {
+        /// <summary>
+        /// The test output helper
+        /// </summary>
         private readonly ITestOutputHelper _testOutputHelper;
 
         /// <summary>
@@ -24,7 +40,7 @@ namespace SmtpLw.Tests
         /// </summary>
         private readonly ISmtpLwClient _client;
 
-        
+
         /// <summary>
         /// Creates the HTTP client.
         /// </summary>
@@ -50,8 +66,9 @@ namespace SmtpLw.Tests
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmtpLwClientTests"/> class.
+        /// Initializes a new instance of the <see cref="SmtpLwClientTests" /> class.
         /// </summary>
+        /// <param name="testOutputHelper">The test output helper.</param>
         public SmtpLwClientTests(ITestOutputHelper testOutputHelper)
         {
             _testOutputHelper = testOutputHelper;
@@ -81,6 +98,9 @@ namespace SmtpLw.Tests
             Assert.True(messageId > 0);
         }
 
+        /// <summary>
+        /// Defines the test method ValidateInvalidMessage.
+        /// </summary>
         [Fact]
         public async Task ValidateInvalidMessage()
         {

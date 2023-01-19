@@ -4,10 +4,10 @@
 // Created          : 07-05-2020
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 07-05-2020
+// Last Modified On : 19/01/2023
 // ***********************************************************************
 // <copyright file="SmtpLwClient.cs" company="Guilherme Branco Stracini ME">
-//     © 2020 Guilherme Branco Stracini. All rights reserved.
+//     © 2020-2023 Guilherme Branco Stracini. All rights reserved.
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -42,8 +42,9 @@ namespace SmtpLw
         private readonly HttpClient _httpClient;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmtpLwClient"/> class.
+        /// Initializes a new instance of the <see cref="SmtpLwClient" /> class.
         /// </summary>
+        /// <param name="authToken">The authentication token.</param>
         public SmtpLwClient(string authToken)
         {
             _httpClient = HttpClientFactory.Create();
@@ -59,7 +60,7 @@ namespace SmtpLw
         /// Initializes a new instance of the <see cref="SmtpLwClient" /> class.
         /// </summary>
         /// <param name="httpClient">The HTTP client.</param>
-        /// <exception cref="ArgumentNullException">httpClient</exception>
+        /// <exception cref="System.ArgumentNullException">httpClient</exception>
         public SmtpLwClient(HttpClient httpClient)
         {
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
@@ -73,7 +74,7 @@ namespace SmtpLw
         /// <param name="message">The message.</param>
         /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Task&lt;System.Int32&gt;.</returns>
-        /// <exception cref="SmtpLwException">There is some errors with your message: {string.Join(",", errors)}</exception>
+        /// <exception cref="SmtpLw.SmtpLwException">There is some errors with your message: {string.Join(",", errors)}</exception>
         public async Task<int> SendMessageAsync(MessageModel message, CancellationToken cancellationToken)
         {
             var errors = ValidateMessage(message);
@@ -144,6 +145,9 @@ namespace SmtpLw
         /// <param name="response">The response.</param>
         /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>System.Threading.Tasks.Task&lt;System.String&gt;.</returns>
+        /// <exception cref="System.Net.Mail.SmtpException">Invalid authorization token</exception>
+        /// <exception cref="SmtpLw.SmtpLwException">Unable to send message, for the following reason(s): {string.Join(",", errors)}</exception>
+        /// <exception cref="SmtpLw.SmtpLwException"></exception>
         private static async Task<int> HandleSendResponseAsync(HttpResponseMessage response,
             CancellationToken cancellationToken)
         {
