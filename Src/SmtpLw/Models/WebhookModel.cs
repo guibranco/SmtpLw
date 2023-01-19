@@ -11,10 +11,10 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using Newtonsoft.Json;
-
 namespace SmtpLw.Models
 {
+    using Newtonsoft.Json;
+
     /// <summary>
     /// Class WebhookModel.
     /// </summary>

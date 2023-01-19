@@ -11,22 +11,24 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using Newtonsoft.Json;
-using SmtpLw.Models;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Net.Mail;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace SmtpLw
 {
+    using Newtonsoft.Json;
+
+    using SmtpLw.Models;
+
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Net.Mail;
+    using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
+
     /// <summary>
     /// Class SmtpLwClient.
     /// Implements the <see cref="SmtpLw.ISmtpLwClient" />

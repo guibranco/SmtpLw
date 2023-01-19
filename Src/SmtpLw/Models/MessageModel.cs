@@ -11,11 +11,12 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using Newtonsoft.Json;
-using System.Collections.Generic;
-
 namespace SmtpLw.Models
 {
+    using Newtonsoft.Json;
+
+    using System.Collections.Generic;
+
     /// <summary>
     /// Class MessageModel.
     /// </summary>

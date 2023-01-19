@@ -11,12 +11,13 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using SmtpLw.Models;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace SmtpLw
 {
+    using SmtpLw.Models;
+
+    using System.Threading;
+    using System.Threading.Tasks;
+
     /// <summary>
     /// Interface ISmtpLwClient
     /// </summary>

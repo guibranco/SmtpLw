@@ -11,10 +11,10 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using System;
-
 namespace SmtpLw
 {
+    using System;
+
     /// <summary>
     /// Class SmtpLwException.
     /// Implements the <see cref="System.Exception" />
