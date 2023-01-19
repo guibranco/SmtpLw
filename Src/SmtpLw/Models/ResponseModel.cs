@@ -4,10 +4,10 @@
 // Created          : 07-05-2020
 //
 // Last Modified By : Guilherme Branco Stracini
-// Last Modified On : 07-05-2020
+// Last Modified On : 19/01/2023
 // ***********************************************************************
 // <copyright file="ResponseModel.cs" company="Guilherme Branco Stracini ME">
-//     © 2020 Guilherme Branco Stracini. All rights reserved.
+//     © 2020-2023 Guilherme Branco Stracini. All rights reserved.
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
