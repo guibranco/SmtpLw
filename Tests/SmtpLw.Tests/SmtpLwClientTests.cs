@@ -1,21 +1,38 @@
-
-using Microsoft.Extensions.Configuration;
-using SmtpLw.Models;
-using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading;
-using System.Threading.Tasks;
-using Xunit;
-using Xunit.Abstractions;
-
+// ***********************************************************************
+// Assembly         : SmtpLw.Tests
+// Author           : Guilherme Branco Stracini
+// Created          : 19/01/2023
+//
+// Last Modified By : Guilherme Branco Stracini
+// Last Modified On : 19/01/2023
+// ***********************************************************************
+// <copyright file="SmtpLwClientTests.cs" company="SmtpLw.Tests">
+//     Copyright (c) Guilherme Branco Stracini ME. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
 namespace SmtpLw.Tests
 {
+
+    using SmtpLw.Models;
+
+    using System;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Threading;
+    using System.Threading.Tasks;
+
+    using Xunit;
+    using Xunit.Abstractions;
+
     /// <summary>
     /// Class MessageValidation.
     /// </summary>
     public class SmtpLwClientTests
     {
+        /// <summary>
+        /// The test output helper
+        /// </summary>
         private readonly ITestOutputHelper _testOutputHelper;
 
         /// <summary>
@@ -23,10 +40,6 @@ namespace SmtpLw.Tests
         /// </summary>
         private readonly ISmtpLwClient _client;
 
-        /// <summary>
-        /// The configuration
-        /// </summary>
-        private readonly IConfiguration _configuration;
 
         /// <summary>
         /// Creates the HTTP client.
@@ -53,19 +66,14 @@ namespace SmtpLw.Tests
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SmtpLwClientTests"/> class.
+        /// Initializes a new instance of the <see cref="SmtpLwClientTests" /> class.
         /// </summary>
+        /// <param name="testOutputHelper">The test output helper.</param>
         public SmtpLwClientTests(ITestOutputHelper testOutputHelper)
         {
             _testOutputHelper = testOutputHelper;
-            _configuration = new ConfigurationBuilder()
-                .AddUserSecrets<SmtpLwClientTests>()
-                .AddEnvironmentVariables()
-                .Build();
 
-            var authToken = string.IsNullOrWhiteSpace(_configuration["authToken"])
-                ? "__YOUR_AUTH_TOKEN_HERE"
-                : _configuration["authToken"];
+            var authToken = "__YOUR_AUTH_TOKEN_HERE__";
 
             _client = new SmtpLwClient(CreateHttpClient(authToken));
         }
@@ -80,20 +88,19 @@ namespace SmtpLw.Tests
             {
                 Body = $"This is a test message sent at {DateTime.Now:dd/MM/yyyy HH:mm:ss}",
                 Subject = $".NET SMTP Locaweb client wrapper test [{DateTime.Now:dd/MM/yyyy}]",
-                To = _configuration["toAddress"],
-                From = _configuration["fromAddress"]
+                To = "someone@example.com",
+                From = "no-reply@example.com"
             };
 
-            //TOD: Mock http request
-            
-            //var messageId = await _client.SendMessageAsync(model, CancellationToken.None).ConfigureAwait(false);
-
-            //_testOutputHelper.WriteLine("Message id: {0}", messageId);
+            //TODO: Mock http request
 
             var messageId = 1;
             Assert.True(messageId > 0);
         }
 
+        /// <summary>
+        /// Defines the test method ValidateInvalidMessage.
+        /// </summary>
         [Fact]
         public async Task ValidateInvalidMessage()
         {
