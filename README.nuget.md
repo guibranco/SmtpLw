@@ -3,9 +3,9 @@
 The [Locaweb dedicated SMTP service](https://www.locaweb.com.br/smtp-locaweb/) API client.
 
 [![GitHub license](https://img.shields.io/github/license/guibranco/SmtpLw)](https://github.com/guibranco/SmtpLw)
-[![Time tracker](https://wakatime.com/badge/github/guibranco/SmtpLw.svg)](https://wakatime.com/badge/github/guibranco/SmtpLw)
 
-<img src="https://raw.githubusercontent.com/guibranco/SmtpLw/main/logo.jpg" alt="SmtpLw" width="432" height="250" />
+![SmtpLW](https://raw.githubusercontent.com/guibranco/SmtpLw/main/logo.png)
+
 
 ## CI/CD
 
