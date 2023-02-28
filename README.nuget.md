@@ -4,7 +4,7 @@ The [Locaweb dedicated SMTP service](https://www.locaweb.com.br/smtp-locaweb/) A
 
 [![GitHub license](https://img.shields.io/github/license/guibranco/SmtpLw)](https://github.com/guibranco/SmtpLw)
 
-![SmtpLW](https://raw.githubusercontent.com/guibranco/SmtpLw/main/logo.png)
+![SmtpLW](https://raw.githubusercontent.com/guibranco/SmtpLw/main/logo.jpg)
 
 
 ## CI/CD
