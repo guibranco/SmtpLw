@@ -19,6 +19,9 @@ The [Locaweb dedicated SMTP service](https://www.locaweb.com.br/smtp-locaweb/) A
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/5ee8a21e3f7a4ccdb614e8856c48d5f3)](https://www.codacy.com/gh/guibranco/SmtpLw/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=guibranco/SmtpLw&amp;utm_campaign=Badge_Grade)
 [![Codecov](https://codecov.io/gh/guibranco/smtplw/branch/main/graph/badge.svg)](https://codecov.io/gh/guibranco/smtplw)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/46804babd27cdd40d219/maintainability)](https://codeclimate.com/github/guibranco/SmtpLw/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/46804babd27cdd40d219/test_coverage)](https://codeclimate.com/github/guibranco/SmtpLw/test_coverage)
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw&metric=alert_status)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
 
