@@ -106,4 +106,4 @@ deploy:
   tag: $(appveyor_build_version)
   auth_token: $(GITHUB_TOKEN)
   force_update: true
-  artifact: ZipFile, Coverage
+  artifact: ZipFile, Package, Coverage
