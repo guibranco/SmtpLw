@@ -70,6 +70,5 @@ namespace SmtpLw.Models
         /// <value>The headers.</value>
         [JsonProperty("headers")]
         public Dictionary<string, string> Headers { get; set; }
-
     }
 }

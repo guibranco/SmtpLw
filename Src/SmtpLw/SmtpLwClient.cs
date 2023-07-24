@@ -52,7 +52,9 @@ namespace SmtpLw
             _httpClient.Timeout = TimeSpan.FromSeconds(30);
             _httpClient.DefaultRequestHeaders.ExpectContinue = false;
             _httpClient.DefaultRequestHeaders.Accept.Clear();
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(@"application/json"));
+            _httpClient.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue(@"application/json")
+            );
             _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("x-auth-token", authToken);
         }
 
@@ -75,17 +77,24 @@ namespace SmtpLw
         /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Task&lt;System.Int32&gt;.</returns>
         /// <exception cref="SmtpLw.SmtpLwException">There is some errors with your message: {string.Join(",", errors)}</exception>
-        public async Task<int> SendMessageAsync(MessageModel message, CancellationToken cancellationToken)
+        public async Task<int> SendMessageAsync(
+            MessageModel message,
+            CancellationToken cancellationToken
+        )
         {
             var errors = ValidateMessage(message);
 
             if (errors.Any())
-                throw new SmtpLwException($"There is some errors with your message: {string.Join(",", errors)}");
+                throw new SmtpLwException(
+                    $"There is some errors with your message: {string.Join(",", errors)}"
+                );
 
             var jsonContent = JsonConvert.SerializeObject(message);
             var contentString = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PostAsync("messages", contentString, cancellationToken).ConfigureAwait(false);
+            var response = await _httpClient
+                .PostAsync("messages", contentString, cancellationToken)
+                .ConfigureAwait(false);
 
             return await HandleSendResponseAsync(response, cancellationToken).ConfigureAwait(false);
         }
@@ -96,12 +105,17 @@ namespace SmtpLw
         /// <param name="messageId">The message identifier.</param>
         /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Task&lt;StatusModel&gt;.</returns>
-        public async Task<StatusModel> GetMessageStatusAsync(int messageId, CancellationToken cancellationToken)
+        public async Task<StatusModel> GetMessageStatusAsync(
+            int messageId,
+            CancellationToken cancellationToken
+        )
         {
+            var response = await _httpClient
+                .GetAsync($"messages/{messageId}", cancellationToken)
+                .ConfigureAwait(false);
 
-            var response = await _httpClient.GetAsync($"messages/{messageId}", cancellationToken).ConfigureAwait(false);
-
-            return await HandleStatusResponseAsync(response, cancellationToken).ConfigureAwait(false);
+            return await HandleStatusResponseAsync(response, cancellationToken)
+                .ConfigureAwait(false);
         }
 
         #endregion
@@ -148,8 +162,10 @@ namespace SmtpLw
         /// <exception cref="System.Net.Mail.SmtpException">Invalid authorization token</exception>
         /// <exception cref="SmtpLw.SmtpLwException">Unable to send message, for the following reason(s): {string.Join(",", errors)}</exception>
         /// <exception cref="SmtpLw.SmtpLwException"></exception>
-        private static async Task<int> HandleSendResponseAsync(HttpResponseMessage response,
-            CancellationToken cancellationToken)
+        private static async Task<int> HandleSendResponseAsync(
+            HttpResponseMessage response,
+            CancellationToken cancellationToken
+        )
         {
             if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
@@ -160,21 +176,27 @@ namespace SmtpLw
 
             if (response.StatusCode == HttpStatusCode.BadRequest)
             {
-                responseModel = await response.Content.ReadAsAsync<ResponseModel>(cancellationToken)
+                responseModel = await response.Content
+                    .ReadAsAsync<ResponseModel>(cancellationToken)
                     .ConfigureAwait(false);
                 var errors = responseModel.Errors?.Select(e => e.Detail) ?? new List<string>();
 
                 throw new SmtpLwException(
-                    $"Unable to send message, for the following reason(s): {string.Join(",", errors)}");
+                    $"Unable to send message, for the following reason(s): {string.Join(",", errors)}"
+                );
             }
 
             if (response.StatusCode != HttpStatusCode.Created)
             {
-                var responseContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                var responseContent = await response.Content
+                    .ReadAsStringAsync()
+                    .ConfigureAwait(false);
                 throw new SmtpLwException((int)response.StatusCode, responseContent);
             }
 
-            responseModel = await response.Content.ReadAsAsync<ResponseModel>(cancellationToken).ConfigureAwait(false);
+            responseModel = await response.Content
+                .ReadAsAsync<ResponseModel>(cancellationToken)
+                .ConfigureAwait(false);
 
             return responseModel.Data.Id;
         }
@@ -186,15 +208,22 @@ namespace SmtpLw
         /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>StatusModel.</returns>
         /// <exception cref="SmtpLw.SmtpLwException"></exception>
-        private static async Task<StatusModel> HandleStatusResponseAsync(HttpResponseMessage response, CancellationToken cancellationToken)
+        private static async Task<StatusModel> HandleStatusResponseAsync(
+            HttpResponseMessage response,
+            CancellationToken cancellationToken
+        )
         {
             if (response.StatusCode != HttpStatusCode.OK)
             {
-                var responseContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                var responseContent = await response.Content
+                    .ReadAsStringAsync()
+                    .ConfigureAwait(false);
                 throw new SmtpLwException((int)response.StatusCode, responseContent);
             }
 
-            return await response.Content.ReadAsAsync<StatusModel>(cancellationToken).ConfigureAwait(false);
+            return await response.Content
+                .ReadAsAsync<StatusModel>(cancellationToken)
+                .ConfigureAwait(false);
         }
     }
 }

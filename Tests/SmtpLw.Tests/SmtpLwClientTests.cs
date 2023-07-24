@@ -13,7 +13,6 @@
 // ***********************************************************************
 namespace SmtpLw.Tests
 {
-
     using SmtpLw.Models;
 
     using System;
@@ -40,7 +39,6 @@ namespace SmtpLw.Tests
         /// </summary>
         private readonly ISmtpLwClient _client;
 
-
         /// <summary>
         /// Creates the HTTP client.
         /// </summary>
@@ -57,13 +55,14 @@ namespace SmtpLw.Tests
             httpClient.DefaultRequestHeaders.ExpectContinue = false;
 
             httpClient.DefaultRequestHeaders.Accept.Clear();
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(@"application/json"));
+            httpClient.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue(@"application/json")
+            );
 
             httpClient.DefaultRequestHeaders.TryAddWithoutValidation("x-auth-token", authToken);
 
             return httpClient;
         }
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SmtpLwClientTests" /> class.
@@ -106,7 +105,12 @@ namespace SmtpLw.Tests
         {
             var model = new MessageModel();
 
-            var result = await Assert.ThrowsAsync<SmtpLwException>(async () => await _client.SendMessageAsync(model, CancellationToken.None).ConfigureAwait(false));
+            var result = await Assert.ThrowsAsync<SmtpLwException>(
+                async () =>
+                    await _client
+                        .SendMessageAsync(model, CancellationToken.None)
+                        .ConfigureAwait(false)
+            );
 
             _testOutputHelper.WriteLine("Error message: {0}", result.Message);
 
