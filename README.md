@@ -34,6 +34,8 @@ The [Locaweb dedicated SMTP service](https://www.locaweb.com.br/smtp-locaweb/) A
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw\&metric=bugs)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=guibranco_SmtpLw\&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=guibranco_SmtpLw)
 
+[![DeepSource](https://app.deepsource.com/gh/guibranco/SmtpLw.svg/?label=active+issues&show_trend=true&token=YtdFKuqhZlwPSi0VXLAoyNMq)](https://app.deepsource.com/gh/guibranco/SmtpLw/?ref=repository-badge)
+
 ***
 
 ## Installation
