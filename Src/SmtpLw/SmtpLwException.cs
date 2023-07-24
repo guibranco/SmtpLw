@@ -14,12 +14,15 @@
 namespace SmtpLw
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// Class SmtpLwException.
     /// Implements the <see cref="System.Exception" />
     /// </summary>
     /// <seealso cref="System.Exception" />
+
+    [ExcludeFromCodeCoverage]
     [Serializable]
     public class SmtpLwException : Exception
     {

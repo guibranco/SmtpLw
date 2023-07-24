@@ -20,6 +20,7 @@ namespace SmtpLw
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Net;
     using System.Net.Http;
@@ -34,6 +35,8 @@ namespace SmtpLw
     /// Implements the <see cref="SmtpLw.ISmtpLwClient" />
     /// </summary>
     /// <seealso cref="SmtpLw.ISmtpLwClient" />
+    
+    [ExcludeFromCodeCoverage]
     public class SmtpLwClient : ISmtpLwClient
     {
         /// <summary>
