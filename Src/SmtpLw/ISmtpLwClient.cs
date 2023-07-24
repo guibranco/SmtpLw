@@ -38,6 +38,5 @@ namespace SmtpLw
         /// <param name="cancellationToken">The cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Task&lt;StatusModel&gt;.</returns>
         Task<StatusModel> GetMessageStatusAsync(int messageId, CancellationToken cancellationToken);
-
     }
 }

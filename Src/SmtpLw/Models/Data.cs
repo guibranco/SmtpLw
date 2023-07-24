@@ -35,6 +35,5 @@ namespace SmtpLw.Models
         /// </summary>
         /// <value>The links.</value>
         public Links Links { get; set; }
-
     }
 }

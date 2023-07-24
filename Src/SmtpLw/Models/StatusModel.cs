@@ -20,7 +20,6 @@ namespace SmtpLw.Models
     /// <seealso cref="SmtpLw.Models.MessageModel" />
     public class StatusModel : MessageModel
     {
-
         /// <summary>
         /// Gets the identifier.
         /// </summary>

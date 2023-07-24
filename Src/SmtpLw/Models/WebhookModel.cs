@@ -27,7 +27,6 @@ namespace SmtpLw.Models
         [JsonProperty("bounce_description")]
         public string BounceDescription { get; set; }
 
-
         /// <summary>
         /// Gets or sets the bounce code.
         /// </summary>
