@@ -35,7 +35,7 @@ namespace SmtpLw
     /// Implements the <see cref="SmtpLw.ISmtpLwClient" />
     /// </summary>
     /// <seealso cref="SmtpLw.ISmtpLwClient" />
-    
+
     [ExcludeFromCodeCoverage]
     public class SmtpLwClient : ISmtpLwClient
     {
