@@ -13,14 +13,12 @@
 // ***********************************************************************
 namespace SmtpLw.Tests
 {
-    using SmtpLw.Models;
-
     using System;
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Threading;
     using System.Threading.Tasks;
-
+    using SmtpLw.Models;
     using Xunit;
     using Xunit.Abstractions;
 
@@ -55,9 +53,10 @@ namespace SmtpLw.Tests
             httpClient.DefaultRequestHeaders.ExpectContinue = false;
 
             httpClient.DefaultRequestHeaders.Accept.Clear();
-            httpClient.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue(@"application/json")
-            );
+            httpClient
+                .DefaultRequestHeaders
+                .Accept
+                .Add(new MediaTypeWithQualityHeaderValue(@"application/json"));
 
             httpClient.DefaultRequestHeaders.TryAddWithoutValidation("x-auth-token", authToken);
 
