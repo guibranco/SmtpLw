@@ -13,10 +13,9 @@
 // ***********************************************************************
 namespace SmtpLw
 {
-    using SmtpLw.Models;
-
     using System.Threading;
     using System.Threading.Tasks;
+    using SmtpLw.Models;
 
     /// <summary>
     /// Interface ISmtpLwClient

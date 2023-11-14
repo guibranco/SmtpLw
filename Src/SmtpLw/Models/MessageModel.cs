@@ -13,9 +13,8 @@
 // ***********************************************************************
 namespace SmtpLw.Models
 {
-    using Newtonsoft.Json;
-
     using System.Collections.Generic;
+    using Newtonsoft.Json;
 
     /// <summary>
     /// Class MessageModel.

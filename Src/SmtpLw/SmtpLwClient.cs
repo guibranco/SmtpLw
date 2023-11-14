@@ -13,10 +13,6 @@
 // ***********************************************************************
 namespace SmtpLw
 {
-    using Newtonsoft.Json;
-
-    using SmtpLw.Models;
-
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
@@ -29,6 +25,8 @@ namespace SmtpLw
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
+    using Newtonsoft.Json;
+    using SmtpLw.Models;
 
     /// <summary>
     /// Class SmtpLwClient.
@@ -55,9 +53,10 @@ namespace SmtpLw
             _httpClient.Timeout = TimeSpan.FromSeconds(30);
             _httpClient.DefaultRequestHeaders.ExpectContinue = false;
             _httpClient.DefaultRequestHeaders.Accept.Clear();
-            _httpClient.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue(@"application/json")
-            );
+            _httpClient
+                .DefaultRequestHeaders
+                .Accept
+                .Add(new MediaTypeWithQualityHeaderValue(@"application/json"));
             _httpClient.DefaultRequestHeaders.TryAddWithoutValidation("x-auth-token", authToken);
         }
 
@@ -179,7 +178,8 @@ namespace SmtpLw
 
             if (response.StatusCode == HttpStatusCode.BadRequest)
             {
-                responseModel = await response.Content
+                responseModel = await response
+                    .Content
                     .ReadAsAsync<ResponseModel>(cancellationToken)
                     .ConfigureAwait(false);
                 var errors = responseModel.Errors?.Select(e => e.Detail) ?? new List<string>();
@@ -191,13 +191,15 @@ namespace SmtpLw
 
             if (response.StatusCode != HttpStatusCode.Created)
             {
-                var responseContent = await response.Content
+                var responseContent = await response
+                    .Content
                     .ReadAsStringAsync()
                     .ConfigureAwait(false);
                 throw new SmtpLwException((int)response.StatusCode, responseContent);
             }
 
-            responseModel = await response.Content
+            responseModel = await response
+                .Content
                 .ReadAsAsync<ResponseModel>(cancellationToken)
                 .ConfigureAwait(false);
 
@@ -218,13 +220,15 @@ namespace SmtpLw
         {
             if (response.StatusCode != HttpStatusCode.OK)
             {
-                var responseContent = await response.Content
+                var responseContent = await response
+                    .Content
                     .ReadAsStringAsync()
                     .ConfigureAwait(false);
                 throw new SmtpLwException((int)response.StatusCode, responseContent);
             }
 
-            return await response.Content
+            return await response
+                .Content
                 .ReadAsAsync<StatusModel>(cancellationToken)
                 .ConfigureAwait(false);
         }
