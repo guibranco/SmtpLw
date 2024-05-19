@@ -1,4 +1,4 @@
-﻿// ***********************************************************************
+// ***********************************************************************
 // Assembly         : SmtpLw
 // Author           : Guilherme Branco Stracini
 // Created          : 07-05-2020
@@ -21,7 +21,6 @@ namespace SmtpLw
     /// Implements the <see cref="System.Exception" />
     /// </summary>
     /// <seealso cref="System.Exception" />
-
     [ExcludeFromCodeCoverage]
     [Serializable]
     public class SmtpLwException : Exception

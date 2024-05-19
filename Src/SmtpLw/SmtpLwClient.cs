@@ -1,4 +1,4 @@
-﻿// ***********************************************************************
+// ***********************************************************************
 // Assembly         : SmtpLw
 // Author           : Guilherme Branco Stracini
 // Created          : 07-05-2020
@@ -33,7 +33,6 @@ namespace SmtpLw
     /// Implements the <see cref="SmtpLw.ISmtpLwClient" />
     /// </summary>
     /// <seealso cref="SmtpLw.ISmtpLwClient" />
-
     [ExcludeFromCodeCoverage]
     public class SmtpLwClient : ISmtpLwClient
     {
