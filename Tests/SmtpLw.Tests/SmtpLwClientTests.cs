@@ -86,7 +86,7 @@ namespace SmtpLw.Tests
                 Body = $"This is a test message sent at {DateTime.Now:dd/MM/yyyy HH:mm:ss}",
                 Subject = $".NET SMTP Locaweb client wrapper test [{DateTime.Now:dd/MM/yyyy}]",
                 To = "someone@example.com",
-                From = "no-reply@example.com"
+                From = "no-reply@example.com",
             };
 
             //TODO: Mock http request
