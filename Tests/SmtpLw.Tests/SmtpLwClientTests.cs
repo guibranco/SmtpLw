@@ -76,8 +76,15 @@ namespace SmtpLw.Tests
         }
 
         /// <summary>
-        /// Defines the test method ValidateSendMessage.
+        /// Validates the sending of a message using the MessageModel.
         /// </summary>
+        /// <remarks>
+        /// This asynchronous test method creates an instance of the <see cref="MessageModel"/> class, populating it with a test message's body, subject, recipient, and sender information.
+        /// The body of the message includes a timestamp indicating when the message was created, while the subject contains a formatted string with the current date.
+        /// The method currently includes a placeholder for mocking an HTTP request to simulate sending the message.
+        /// After setting up the model, it asserts that the message ID is greater than zero, indicating a successful operation.
+        /// This test is part of a unit testing framework and is marked with the <see cref="Fact"/> attribute, which signifies that it is a test method.
+        /// </remarks>
         [Fact]
         public async Task ValidateSendMessage()
         {
