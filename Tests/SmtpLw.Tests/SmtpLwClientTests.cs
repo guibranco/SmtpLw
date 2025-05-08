@@ -110,11 +110,8 @@ namespace SmtpLw.Tests
         {
             var model = new MessageModel();
 
-            var result = await Assert.ThrowsAsync<SmtpLwException>(
-                async () =>
-                    await _client
-                        .SendMessageAsync(model, CancellationToken.None)
-                        .ConfigureAwait(false)
+            var result = await Assert.ThrowsAsync<SmtpLwException>(async () =>
+                await _client.SendMessageAsync(model, CancellationToken.None).ConfigureAwait(false)
             );
 
             _testOutputHelper.WriteLine("Error message: {0}", result.Message);

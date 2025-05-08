@@ -1,13 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-
     <IsPackable>false</IsPackable>
-
     <UserSecretsId>f7927935-1fa0-45ce-b4de-7caeb62ec151</UserSecretsId>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="coverlet.msbuild" Version="6.0.4">
       <PrivateAssets>all</PrivateAssets>
@@ -27,9 +23,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\Src\SmtpLw\SmtpLw.csproj" />
   </ItemGroup>
-
 </Project>
